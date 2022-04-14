@@ -1,3 +1,3 @@
 # OpenWebif
 
-Desktop app for openwebif web interface written in godot
+Desktop app for [OpenWebif](https://github.com/E2OpenPlugins/e2openplugin-OpenWebif) web interface written in godot
