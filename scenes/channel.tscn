@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://themes/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/channel.gd" type="Script" id=2]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 19
+font_data = ExtResource( 1 )
+
+[node name="Container" type="ReferenceRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
+anchor_left = 0.826
+anchor_right = 0.826
+anchor_bottom = 0.683
+margin_left = -440.824
+margin_top = 41.0
+margin_right = 0.175964
+margin_bottom = 0.199982
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+anchor_bottom = 1.0
+margin_right = 441.0
+color = Color( 0.207843, 0.207843, 0.207843, 1 )
+
+[node name="begin" type="Label" parent="Popup"]
+margin_right = 441.0
+margin_bottom = 24.0
+text = "Begin: "
+
+[node name="end" type="Label" parent="Popup"]
+margin_top = 24.0
+margin_right = 441.0
+margin_bottom = 48.0
+text = "End: "
+
+[node name="HSeparator" type="HSeparator" parent="Popup"]
+anchor_right = 1.0
+margin_top = 48.0
+margin_bottom = 52.0
+
+[node name="HSeparator2" type="HSeparator" parent="Popup"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -26.0
+margin_bottom = -22.0
+
+[node name="np" type="Label" parent="Popup"]
+margin_top = 48.0
+margin_right = 441.0
+margin_bottom = 72.0
+clip_text = true
+
+[node name="longdesc" type="Label" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 72.0
+margin_bottom = -26.0
+custom_fonts/font = SubResource( 2 )
+autowrap = true
+clip_text = true
+
+[node name="next" type="Label" parent="Popup"]
+anchor_top = 1.0
+anchor_right = 0.985
+anchor_bottom = 1.0
+margin_top = -24.0
+margin_right = -0.155029
+text = "Next: "
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+margin_bottom = 42.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="name" type="Label" parent="Control"]
+anchor_right = 0.271
+margin_left = 4.0
+margin_right = 0.495972
+margin_bottom = 38.0
+text = "xd"
+valign = 1
+clip_text = true
+
+[node name="nowplaying" type="Label" parent="Control"]
+anchor_left = 0.275
+anchor_right = 0.839
+margin_left = 0.399994
+margin_right = -0.136047
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+valign = 1
+
+[node name="play" type="Button" parent="Control"]
+anchor_left = 1.0
+anchor_top = -0.00666667
+anchor_right = 1.0
+anchor_bottom = -0.00666667
+margin_left = -165.0
+margin_top = 0.266667
+margin_bottom = 38.2667
+text = "Play"
+
+[node name="HSeparator" type="HSeparator" parent="Control"]
+anchor_right = 1.0
+margin_top = 38.0
+margin_bottom = 42.0
+
+[node name="VSeparator2" type="VSeparator" parent="Control"]
+margin_right = 4.0
+margin_bottom = 40.0
+
+[node name="VSeparator" type="VSeparator" parent="Control"]
+anchor_left = 0.273
+anchor_right = 0.273
+margin_left = -1.552
+margin_right = 2.448
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="mouse_entered" from="Control" to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_Control_mouse_exited"]
+[connection signal="pressed" from="Control/play" to="." method="play_pressed"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ProgramList.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/SearchableList.tscn" type="PackedScene" id=3]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=4]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="allservices" type="HTTPRequest" parent="."]
+
+[node name="nowplaying" type="HTTPRequest" parent="."]
+
+[node name="groups" parent="." instance=ExtResource( 3 )]
+anchor_right = 0.294
+margin_right = -0.0559998
+
+[node name="programs" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_left = 0.354
+anchor_bottom = 0.94
+margin_left = 0.503998
+margin_bottom = -6.10352e-05
+
+[node name="ip" type="LineEdit" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = -47.0
+margin_right = 176.0
+margin_bottom = -13.0
+text = "10.0.0.21"
+placeholder_text = "IP Address"
+
+[node name="ipset" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 196.0
+margin_top = -45.0
+margin_right = 289.0
+margin_bottom = -15.0
+text = "Set IP"
+
+[connection signal="request_completed" from="allservices" to="." method="allservices_request_completed"]
+[connection signal="request_completed" from="nowplaying" to="." method="nowplaying_completed"]
+[connection signal="selected" from="groups" to="." method="group_selected"]
+[connection signal="pressed" from="ipset" to="." method="ipset_pressed"]
