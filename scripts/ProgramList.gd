@@ -10,8 +10,6 @@ func add_item(name, np, url, longdesc):
 	c.set_longdesc(longdesc)
 	c.url = url
 	
-	
-	
 	$ScrollList/List.add_child(c)
 	
 func get_at(idx):

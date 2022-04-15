@@ -36,7 +36,7 @@ margin_left = 13.0
 margin_top = -47.0
 margin_right = 176.0
 margin_bottom = -13.0
-text = "10.0.0.21"
+text = "192.168.65.65"
 placeholder_text = "IP Address"
 
 [node name="ipset" type="Button" parent="."]

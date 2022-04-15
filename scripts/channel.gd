@@ -6,7 +6,7 @@ func _ready():
 	pass # Replace with function body.
 
 func set_channel_name(t):
-	$Control/name.text = t
+	if t != null: $Control/name.text = t
 	
 
 func set_nowplaying(t):
@@ -15,14 +15,14 @@ func set_nowplaying(t):
 		$Popup/np.text = t
 		
 func set_longdesc(t):
-	if t != null:
-		$Popup/longdesc.text = t
+	if t != null: $Popup/longdesc.text = t
 
 func get_name():
 	return $Control/name.text
 
 func play_pressed():
-	OS.execute("vlc", [url], false)
+	var err = OS.execute("vlc", [url], false)
+	if err != 0: print("Error opening vlc")
 
 func _on_Control_mouse_entered():
 	$Popup.show()

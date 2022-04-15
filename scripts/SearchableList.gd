@@ -3,7 +3,11 @@ extends VBoxContainer
 signal selected(what)
 
 func clear():
-	for item in $ScrollList/List.get_children(): item.queue_free()
+	for item in $ScrollList/List.get_children(): 
+		item.queue_free()
+		item.remove_and_skip()
+	
+	print($ScrollList/List.get_child_count())
 
 func add_item(t):
 	var b = Button.new()
@@ -11,6 +15,7 @@ func add_item(t):
 	b.align = ALIGN_BEGIN
 	b.clip_text = true
 	b.connect("pressed",self,"emit_signal",["selected",$ScrollList/List.get_child_count()])
+	
 	$ScrollList/List.add_child(b)
 
 func get_at(idx):

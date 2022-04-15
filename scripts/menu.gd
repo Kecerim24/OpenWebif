@@ -10,6 +10,9 @@ func _ready():
 
 func allservices_request_completed(result, response_code, headers, body):
 	services = JSON.parse(body.get_string_from_utf8()).result.services
+	$groups.clear()
+	#
+	print($groups.has_items())
 	for service in services:
 		$groups.add_item(service.servicename)
 	

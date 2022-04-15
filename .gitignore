@@ -6,5 +6,4 @@ bin/
 build/
 lib/
 addons/
-openwebif.*
-*.c*
+others/
